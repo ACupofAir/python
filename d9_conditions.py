@@ -1,4 +1,5 @@
 # Conditions
+
 username = input('What\'s your name?\n')
 if isinstance(username, str):
     print(f'Hello, {username}!')
