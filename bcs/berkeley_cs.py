@@ -107,16 +107,18 @@ plt.show()
 
 Y = Xr
 Xi = Y
+plt.ion()
 plt.figure()
-for i in range(36):
-    plt.subplot(6, 6, i+1)
+for i in range(100):
+    plt.clf()
     xi = np.fft.ifft(Xi)
     xi_st = norm_l1(xi.real, lmda[2])
     Xi = np.fft.fft(xi_st)
     Xi = Xi * (Y == 0) + Y
-    plt.stem(xi.real)
     plt.title('Iteration %d' % i)
-plt.show()
+    plt.stem(xi.real)
+    plt.pause(0.5)
+plt.ioff()
 
 Y = Xu
 Xi = Y
