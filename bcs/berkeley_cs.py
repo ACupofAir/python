@@ -4,13 +4,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from IPython import display
 
-
 # %p
 # generate a length-128 vector with 5 non-zero coefficients and permute them
 # randomly
 x = np.array([0.2, 0.5, 0.6, 0.8, 1]+[0]*(128-5))
 x = x[np.random.permutation(128)-1]
-
 plt.stem(x)
 plt.show()
 
@@ -24,7 +22,6 @@ plt.show()
 # %%
 # denoising and regularization
 lmda = [0.01, 0.05, 0.1, 0.2]
-
 plt.figure()
 for i in range(len(lmda)):
     plt.subplot(2, 2, i+1)
@@ -35,7 +32,6 @@ for i in range(len(lmda)):
 plt.show()
 
 # %%
-
 
 def SoftThresh(y, lmda):
     if y > lmda:
