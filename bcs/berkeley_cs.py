@@ -117,7 +117,7 @@ for i in range(100):
     Xi = Xi * (Y == 0) + Y
     plt.title('Iteration %d' % i)
     plt.stem(xi.real)
-    plt.pause(0.5)
+    plt.pause(0.2)
 plt.ioff()
 
 Y = Xu
@@ -132,3 +132,5 @@ for i in range(36):
     plt.stem(xi.real)
     plt.title('Iteration %d' % i)
 plt.show()
+
+# %%
