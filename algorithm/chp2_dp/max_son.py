@@ -5,7 +5,7 @@ def maxSubArray(nums):
     for i in range(len(nums)):
         onesum += nums[i]
         if maxsum < onesum:
-            right = i + 91
+            right = i + 1
         maxsum = max(maxsum, onesum)
         if onesum < 0:
             onesum = 0
@@ -13,8 +13,6 @@ def maxSubArray(nums):
     return maxsum, left, right
 
 
-case_num = int(input())
-while case_num > 0:
-    line = input()
-    lst_test = list(map(int, line.split()))
+line = input()
+lst_test = list(map(int, line.split()))
 print(maxSubArray(lst_test))
