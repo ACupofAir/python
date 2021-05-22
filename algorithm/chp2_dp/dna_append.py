@@ -15,19 +15,26 @@ def select_arr_head(left, right, intervals):
     for interval in intervals:
         if (interval[0] <= right) and (interval[0] >= left):
             res.append(interval)
-    res = sorted(res, key=(lambda x: x[1]), reverse=True)
-    return res
+    if res :
+        res = sorted(res, key=(lambda x: x[1]), reverse=True)
+        intervals.remove(res[0])
+        return res[0]
+    else:
+        return 0
 #%%
 def merge(intervals, target):
     merged = [[0, 0]]
-    pre_interval=[-1, 0]
     sum = 0
-    temp = select_arr_head(merged[-1][0], merged[-1][1], intervals)
-    if temp:
-
+    while merged[-1][1] != target:
+        temp = select_arr_head(merged[-1][0], merged[-1][1], intervals)
+        if temp:
+            merged[-1][1] = temp[1]
+            sum += 1
+        else:
+            return -1
     if merged[-1][1] != target:
         return -1
-    else:
+    else: 
         return sum
 
 
@@ -35,7 +42,11 @@ def merge(intervals, target):
 target = int(input())
 line = input()
 lst_test = list(map(int, line.split()))
-print(lst_test)
-
-# %%
+#%%
 print(merge(sort_arr(lst_test), target))
+
+#%%
+line = input()
+lst_test = list(map(int, line.split()))
+sorted_arr = sort_arr(lst_test)
+print(sorted_arr)
