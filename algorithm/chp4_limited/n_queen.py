@@ -33,5 +33,3 @@ while True:
 for queen in queen_n:
     print(queen_ans_num(queen))
 	
-
-# %%
